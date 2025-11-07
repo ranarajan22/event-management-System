@@ -4,21 +4,17 @@ import sys
 from io import BytesIO
 from django.core.wsgi import get_wsgi_application
 
-# Add project root to Python path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# ensure project root (repo root where manage.py lives) is on PYTHONPATH
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(ROOT_DIR)
 
-# Set the correct settings module
-# os.environ.setdefault("DJANGO_SETTINGS_MODULE", "yourprojectname.settings")
+# point to your settings module
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "final_EMS_1.settings")
 
-
-# Get Django's WSGI application
+# create WSGI app
 application = get_wsgi_application()
 
 def handler(request, response):
-    """
-    Vercel entry point. Adapts the incoming Vercel request to Django's WSGI app.
-    """
     environ = request.environ.copy() if hasattr(request, "environ") else {}
     body = request.body or b""
     environ["wsgi.input"] = BytesIO(body)
@@ -31,6 +27,7 @@ def handler(request, response):
         else (request.query_string or "")
     )
 
+    # required WSGI defaults
     environ.setdefault("SERVER_NAME", "vercel")
     environ.setdefault("SERVER_PORT", "80")
     environ.setdefault("wsgi.version", (1, 0))
@@ -40,7 +37,6 @@ def handler(request, response):
     environ.setdefault("wsgi.multiprocess", False)
     environ.setdefault("wsgi.run_once", False)
 
-    # Capture response
     body_parts = []
     status_headers = {}
 
@@ -60,4 +56,3 @@ def handler(request, response):
         response.set_header(k, v)
     response.write(b"".join(body_parts))
     return response
-
