@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/land.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="welcome-message">
+            <h1>Welcome to Lumina</h1>
+            <p>Manage your events with ease</p>
+            <p>Your Event, Our Passion</p>
+        </div>
+        <div class="buttons">
+            <a href="{% url 'login' %}"><button class="login-btn">Login</button></a>
+            <a href="{% url 'signup' %}"><button class="signup-btn">Signup</button></a>
+        </div>
+    </div>
+
+    <script src="{% static 'js/land.js' %}"></script>
+</body>
+</html>

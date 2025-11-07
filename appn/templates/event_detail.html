@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ event.name }}</h2>
+<p><strong>Organiser:</strong> {{ event.organiser }}</p>
+<p><strong>Sponsor:</strong> {{ event.sponsor }}</p>
+<p><strong>Category:</strong> {{ event.category }}</p>
+<p><strong>Date & Time:</strong> {{ event.event_datetime }}</p>
+<p><strong>One-Line Description:</strong> {{ event.one_line_description }}</p>
+<p><strong>Complete Description:</strong> {{ event.complete_description }}</p>
+<p><strong>Eligibility:</strong> {{ event.eligibility }}</p>
+<p><strong>Rewards:</strong> {{ event.rewards }}</p>
+<p><strong>Status:</strong> {{ event.status }}</p>
+
+{% if event.status == 'Completed' and event.winner %}
+<p><strong>Winner:</strong> {{ event.winner }}</p>
+{% endif %}
+
+<a href="{% url 'event_list' %}">Back to Events</a>
+{% endblock %}

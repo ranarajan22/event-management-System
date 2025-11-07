@@ -1,0 +1,554 @@
+
+body, ul, li, a, button {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    background-color: #333;
+    color: #fff;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+/* Logo container */
+.logo {
+    height: 100%;                /* Ensure the logo fills the height of the navbar */
+    display: flex;
+    align-items: center;         /* Center the logo vertically in the navbar */
+}
+
+/* Logo image */
+.logo img {
+    max-height: 60px;            /* Adjust max height to fit the navbar height */
+    width: auto;                 /* Maintain aspect ratio */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    background-color: #333;
+    height: 70px;                /* Adjust the navbar height */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .logo img {
+        max-height: 50px;        /* Adjust the logo size for smaller screens */
+    }
+
+    .navbar {
+        height: 60px;            /* Reduce navbar height on smaller screens */
+    }
+}
+
+.nav-links ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links ul li {
+    margin-left: 20px;
+}
+
+.nav-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.nav-links ul li a:hover {
+    background-color: #555;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+}
+
+.search-button {
+    padding: 5px 10px;
+    margin-left: 5px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.auth-buttons .signup-button {
+    padding: 8px 15px;
+    background-color: #f00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile {
+    margin-left: 20px;
+    color: #fff;
+}
+
+/* Hamburger menu for smaller devices */
+.menu-icon {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+    }
+
+    .nav-links ul li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .nav-links.active ul {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+        color: #fff;
+    }
+
+    .search-container, .auth-buttons {
+        display: none;
+    }
+}
+
+
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff6347; /* Tomato color */
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+}
+
+.search-button {
+    padding: 5px 10px;
+    margin-left: 5px;
+    border: none;
+    background-color: #ff6347; /* Tomato color */
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: #e55347; /* Darker shade */
+}
+
+
+.slider {
+    background-color: #f9f9f9;
+    position: relative;
+    overflow: hidden;
+    max-width: 100%; /* Center the slider with margin */
+    margin: 0 auto; /* Center align the slider */
+    height: 600px; /* Set the height to 600px */
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 300%; /* Adjust based on the number of slides */
+}
+
+.slide {
+    min-width: 100%; /* Each slide takes up full width */
+    height: 600px; /* Set height for each slide */
+}
+
+.slide img {
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Full height of the container */
+    object-fit: cover; /* Maintain aspect ratio while covering the entire slide */
+}
+/* Slider container */
+.slider {
+    position: relative;
+    width: 100%;               /* Full width slider */
+    max-width: 1200px;          /* Adjust to your preference */
+    height: 100%;               /* Let the height adjust based on content */
+    margin: auto;
+    overflow: hidden;           /* Hide overflow to maintain clean look */
+}
+
+/* Slides container */
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;                /* Full width for the sliding effect */
+    height: 100%;               /* Matches the height of the container */
+}
+
+/* Individual slide image */
+.slides img {
+    width: 100%;                /* Image fills the width */
+    height: 100%;               /* Image height fills the container */
+    object-fit: cover;          /* Ensures the image covers the slider without distortion */
+}
+
+
+.events-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.events-container {
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    position: relative; /* Positioning for buttons */
+}
+
+.events-wrapper {
+    overflow: hidden; /* Hide overflow */
+    width: 60%; /* Set the width of the event wrapper to show 2 cards comfortably */
+}
+
+.events-cards {
+    display: flex; /* Flexbox for horizontal layout */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.event {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px; /* Decrease padding for smaller cards */
+    margin: 10px; /* Margin for spacing */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex: 0 0 40%; /* Each card takes up 40% of the wrapper width */
+    /* This allows more space for two cards */
+}
+
+.event-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px; /* Optional: rounded corners */
+}
+
+.nav-button {
+    background-color: #3498db; /* Blue background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute; /* Absolute positioning */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Center adjustment */
+    z-index: 1; /* Ensure buttons are above the cards */
+    margin: 0 15px; /* Add horizontal margin to the buttons */
+}
+
+.nav-button.left {
+    left: 10px; /* Position on the left */
+}
+
+.nav-button.right {
+    right: 10px; /* Position on the right */
+}
+
+
+.nav-button:hover {
+    background-color: #2980b9; /* Darker shade on hover */
+}
+
+
+.services-section {
+    padding: 20px;
+    background-color: #f9f9f9; /* Light gray background */
+    text-align: center;
+}
+
+.services-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: center; /* Center align items */
+}
+
+.service-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px; /* Margin for spacing */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex: 1 1 250px; /* Flex item that grows and shrinks */
+    max-width: 300px; /* Maximum width for each service card */
+    color: black; /* Black text color */
+}
+
+.card-planning {
+    background-color: #3498db; /* Blue */
+}
+
+.card-catering {
+    background-color: #e74c3c; /* Red */
+}
+
+.card-venue {
+    background-color: #2ecc71; /* Green */
+}
+
+.card-entertainment {
+    background-color: #f39c12; /* Orange */
+}
+
+.card-decoration {
+    background-color: #8e44ad; /* Purple */
+}
+
+.card-photography {
+    background-color: #34495e; /* Dark Blue */
+}
+
+.service-card h3 {
+    margin: 10px 0;
+    color: black; /* Black color for headings */
+}
+
+.service-card p {
+    margin: 5px 0;
+    color: black; /* Black color for paragraph text */
+}
+
+
+
+
+.about-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.about-content {
+    display: flex; /* Use Flexbox for layout */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    align-items: center; /* Center align items vertically */
+    justify-content: center; /* Center align items horizontally */
+}
+
+.about-image {
+    flex: 1; /* Allow the image to take equal space */
+    min-width: 250px; /* Minimum width for responsiveness */
+    margin: 10px; /* Margin for spacing */
+}
+
+.about-img {
+    width: 100%; /* Full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Optional: rounded corners */
+}
+
+.about-text {
+    flex: 2; /* Allow the text to take more space */
+    max-width: 600px; /* Limit text width for readability */
+    margin: 10px; /* Margin for spacing */
+    text-align: left; /* Align text to the left */
+}
+
+
+
+
+
+
+
+
+.about-section, .contact-section, .sponsors-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.about-section h2, .contact-section h2, .sponsors-section h2 {
+    margin-bottom: 20px;
+}
+
+.contact-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.contact-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.contact-details {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: space-around; /* Space between items */
+    align-items: flex-start; /* Align items to the top */
+}
+
+.contact-info, .ceo-info, .manager-info {
+    flex: 1; /* Allow each section to take equal space */
+    margin: 20px;
+    min-width: 250px; /* Minimum width for responsiveness */
+}
+
+.ceo-image {
+    width: 100px; /* Set width for CEO image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Circular image */
+}
+
+.contact-form {
+    flex: 1; /* Allow form to take equal space */
+    margin: 20px;
+    min-width: 250px; /* Minimum width for responsiveness */
+}
+
+.contact-textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    height: 100px; /* Set height for the textarea */
+    resize: vertical; /* Allow vertical resizing */
+}
+
+
+.contact-input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.contact-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-button:hover {
+    background-color: #0056b3; /* Darker blue */
+}
+
+
+.sponsors-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.sponsor-logo {
+    width: 150px; /* Set width for sponsor logos */
+    margin: 10px; /* Spacing between logos */
+}
+
+.footer {
+    background: linear-gradient(to right, #333, #444); /* Gradient background */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+.footer-tagline {
+    background-color: #444; /* Dark background for tagline */
+    color: #e0ff47; /* Tomato color for tagline text */
+    padding: 10px 0;
+}
+
+.footer-tagline h4 {
+    margin: 0; /* Remove default margin */
+    font-size: 18px; /* Font size for tagline */
+    font-weight: normal; /* Normal weight for tagline */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around; /* Space between sections */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.footer-about, .footer-links, .footer-social {
+    margin: 10px;
+    flex: 1; /* Allow sections to take equal space */
+    min-width: 200px; /* Minimum width for responsiveness */
+}
+
+.footer-links ul, .footer-social ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links a, .footer-social a {
+    color: #ff6347; /* Tomato color for links */
+    text-decoration: none;
+}
+
+.footer-links a:hover, .footer-social a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.footer p {
+    margin-top: 20px;
+    font-size: 14px; /* Smaller font size for the copyright */
+}

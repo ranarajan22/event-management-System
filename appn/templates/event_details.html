@@ -1,0 +1,13 @@
+<!-- templates/rajan/event_details.html -->
+<!DOCTYPE html>
+<html>
+<head><title>Event Details</title></head>
+<body>
+    <form action="{% url 'event_register' event.id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events by Category</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/eventstyles.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <img src="{% static 'event_img/logoevent.png' %}" alt="MyLogo" class="logo">
+        <ul class="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about_us' %}">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="{% url 'events' %}">Events</a></li>
+            <li><a href="{% url 'contacts' %}">Contact</a></li>
+            <li><a href="{% url 'sponsors' %}">Sponsors</a></li>
+        </ul>
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search..." class="search-bar">
+            <button onclick="searchEvents()" class="search-button">Search</button>
+        </div>
+    </nav>
+
+    <div class="events-section" id="eventsSection">
+        <h2>Events by Category</h2>
+
+        <!-- Workshops Category -->
+        <div class="category">
+            <h3>Workshops</h3>
+            <div class="events-container" id="workshops">
+                <div class="event">
+                    <img src="{% static 'images/image1.jpeg' %}" alt="Workshop 1" class="event-image">
+                    <h4>Workshop Title 1</h4>
+                    <p>Date: October 15, 2024</p>
+                    <p>Location: Venue 1</p>
+                    <p>Description: Brief description of the event goes here.</p>
+                    <a href="" class="register-button">Register</a>
+                </div>
+                <div class="event">
+                    <img src="{% static 'images/image1.jpeg' %}" alt="Workshop 2" class="event-image">
+                    <h4>Workshop Title 2</h4>
+                    <p>Date: November 20, 2024</p>
+                    <p>Location: Venue 2</p>
+                    <p>Description: Brief description of the event goes here.</p>
+                    <a href="" class="register-button">Register</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seminars Category -->
+        <div class="category">
+            <h3>Seminars</h3>
+            <div class="events-container">
+                <div class="event">
+                    <img src="{% static 'images/image1.jpeg' %}" alt="Seminar 1" class="event-image">
+                    <h4>Seminar Title 1</h4>
+                    <p>Date: December 5, 2024</p>
+                    <p>Location: Venue 3</p>
+                    <p>Description: Brief description of the event goes here.</p>
+                    <a href="" class="register-button">Register</a>
+                </div>
+                <div class="event">
+                    <img src="{% static 'images/image1.jpeg' %}" alt="Seminar 2" class="event-image">
+                    <h4>Seminar Title 2</h4>
+                    <p>Date: January 10, 2025</p>
+                    <p>Location: Venue 4</p>
+                    <p>Description: Brief description of the event goes here.</p>
+                    <a href="" class="register-button">Register</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conferences Category -->
+        <div class="category">
+            <h3>Conferences</h3>
+            <div class="events-container">
+                <div class="event">
+                    <img src="{% static 'images/image1.jpeg' %}" alt="Conference 1" class="event-image">
+                    <h4>Conference Title 1</h4>
+                    <p>Date: February 14, 2025</p>
+                    <p>Location: Venue 5</p>
+                    <p>Description: Brief description of the event goes here.</p>
+                    <a href="" class="register-button">Register</a>
+                </div>
+                <div class="event">
+                    <img src="{% static 'images/image1.jpeg' %}" alt="Conference 2" class="event-image">
+                    <h4>Conference Title 2</h4>
+                    <p>Date: March 20, 2025</p>
+                    <p>Location: Venue 6</p>
+                    <p>Description: Brief description of the event goes here.</p>
+                    <a href="" class="register-button">Register</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; Lumina All rights reserved.</p>
+    </footer>
+
+    <script src="{% static 'js/eventscript.js' %}"></script>
+</body>
+</html>

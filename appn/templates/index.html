@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        .profile-dropdown {
+            position: absolute;
+            top: 70px; /* Adjust based on your navbar height */
+            right: 20px;
+            width: 250px;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            z-index: 1000;
+        }
+    
+        /* Hidden class to toggle visibility */
+        .hidden {
+            display: none;
+        }
+    </style>
+    
+</head>
+<body>
+   
+  <!-- Navbar HTML -->
+<nav class="navbar">
+    <img src="{% static 'event_img/indexlogo.png' %}" alt="MyLogo" class="logo">
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+    <div class="nav-links">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <a href="{% url 'events' %}">Event</a>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#sponsors">Sponsors</a></li>
+            <!-- Profile Link -->
+            <li><a href="#" id="profile-link" onclick="event.preventDefault(); toggleProfile()">Profile</a></li>
+        </ul>
+    </div>
+
+    <div class="search-container">
+        <input type="text" placeholder="Search..." class="search-bar">
+        <button type="submit" class="search-button">Search</button>
+    </div>
+    {% comment %} <div class="profile">
+        Hello, {{ user.username }}
+    </div> {% endcomment %}
+    <div class="auth-buttons">
+        <a href="{% url 'logout' %}">
+            <button class="signup-button">Logout</button>
+        </a>
+    </div>
+</nav>
+
+<!-- Profile Popup Dropdown -->
+<div id="profile-dropdown" class="profile-dropdown hidden">
+    <h2>Welcome, {{ user.username }}!</h2>
+    <p><strong>Role:</strong> {{ user.role }}</p>
+    <p><strong>Unique ID:</strong> {{ user.unique_id }}</p>
+
+    
+    
+    <p>You are a participant. Enjoy the events!</p>
+    
+</div>
+
+<!-- CSS for styling the profile popup dropdown -->
+
+<!-- JavaScript for toggle functionality -->
+<script>
+    function toggleProfile() {
+        const profileDropdown = document.getElementById("profile-dropdown");
+        profileDropdown.classList.toggle("hidden");
+    }
+
+    // Close the popup when clicking outside
+    document.addEventListener("click", function(event) {
+        const profileDropdown = document.getElementById("profile-dropdown");
+        const profileLink = document.getElementById("profile-link");
+
+        // Close the dropdown if the click is outside
+        if (!profileDropdown.contains(event.target) && event.target !== profileLink) {
+            profileDropdown.classList.add("hidden");
+        }
+    });
+</script>
+
+
+    <div class="slider">
+        <div class="slides">
+            <img src="{% static 'event_img/P82A4848.JPG' %}" alt="Slide 1" class="slide">
+            <img src="{% static 'event_img/img55.jpg' %}" alt="Slide 2" class="slide">
+            <img src="{% static 'event_img/img414.avif' %}" alt="Slide 3" class="slide">
+            <img src="{% static 'event_img/P82A2720.JPG' %}" alt="Slide 4" class="slide">
+            <img src="{% static 'event_img/img66.jpg' %}" alt="Slide 5" class="slide">
+            <img src="{% static 'event_img/P82A4844.JPG' %}" alt="Slide 6" class="slide">
+            <img src="{% static 'event_img/P82A4848.JPG' %}" alt="Slide 7" class="slide">
+        </div>
+    </div>
+
+    <section id="events" class="events-section">
+        <h2>Upcoming Events</h2>
+        <div class="events-container">
+            <button class="nav-button left" onclick="moveSlides(-1)">&#10094;</button>
+            
+            <div class="events-wrapper">
+                <div class="events-cards">
+                    <div class="event">
+                        <img src="{% static 'images/image1.jpeg' %}" alt="Event 1" class="event-image">
+                        <h3>Event Title 1</h3>
+                        <p>Date: October 15, 2024</p>
+                        <p>Location: Venue 1</p>
+                        <p>Description: Brief description of the event goes here.</p>
+                    </div>
+                    <div class="event">
+                        <img src="{% static 'images/image2.jpeg' %}" alt="Event 2" class="event-image">
+                        <h3>Event Title 2</h3>
+                        <p>Date: November 20, 2024</p>
+                        <p>Location: Venue 2</p>
+                        <p>Description: Brief description of the event goes here.</p>
+                    </div>
+                    <div class="event">
+                        <img src="{% static 'images/image3.jpeg' %}" alt="Event 3" class="event-image">
+                        <h3>Event Title 3</h3>
+                        <p>Date: December 5, 2024</p>
+                        <p>Location: Venue 3</p>
+                        <p>Description: Brief description of the event goes here.</p>
+                    </div>
+                    <!-- Additional events can be added here -->
+                </div>
+            </div>
+            
+            <button class="nav-button right" onclick="moveSlides(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <h2>Our Services</h2>
+        <div class="services-container">
+            <div class="service-card">
+                <h3>Event Planning</h3>
+                <p>We offer comprehensive event planning services to ensure your event is flawless from start to finish.</p>
+            </div>
+            <div class="service-card">
+                <h3>Catering Services</h3>
+                <p>Our catering services provide delicious options tailored to your preferences and dietary needs.</p>
+            </div>
+            <!-- Additional services can be added here -->
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="{% static 'event_img/img66.jpg' %}" alt="About Us" class="about-img">
+            </div>
+            <div class="about-text">
+                <h3>Who We Are</h3>
+                <p>Lumina is an event management company with years of experience in crafting memorable experiences.</p>
+                <!-- More content here -->
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <div class="contact-details">
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <p><strong>Phone:</strong> (123) 456-7890</p>
+                <p><strong>Email:</strong> lumina@yourcompany.com</p>
+            </div>
+            <div class="ceo-info">
+                <img src="{% static 'event_img/ceo.jpeg' %}" alt="CEO" class="ceo-image">
+                <h3>Sundar Pichai</h3>
+                <p>CEO, Lumina</p>
+                <p>With over 15 years in the industry, Sundar leads our team with a vision for excellence in event management.</p>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" class="contact-input" required>
+                <input type="email" placeholder="Your Email" class="contact-input" required>
+                <textarea placeholder="Your Message" class="contact-textarea" required></textarea>
+                <button type="submit" class="contact-button">Send Message</button>
+            </form>
+        </div>
+    </section>
+    
+    <section id="sponsors" class="sponsors-section">
+        <h2>Our Sponsors</h2>
+        <div class="sponsors-container">
+            <img src="{% static 'event_img/spon5.jpeg' %}" alt="Sponsor 1" class="sponsor-logo">
+            <img src="{% static 'event_img/spon6.jpeg' %}" alt="Sponsor 2" class="sponsor-logo">
+            <img src="{% static 'event_img/spon7.png' %}" alt="Sponsor 3" class="sponsor-logo">
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-tagline">
+            <h4>Your Event, Our Passion</h4>
+        </div>
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>About Us</h3>
+                <p>Lumina is dedicated to creating unforgettable events tailored to your needs.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+                    <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                    <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                    <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <p>&copy; Lumina. All rights reserved.</p>
+    </footer>
+    
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

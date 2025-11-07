@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h2>Welcome, {{ user.username }}!</h2> <br>
+<p><strong>Role:</strong> {{ user.role }}</p><br>
+<p><strong>Unique ID:</strong> {{ user.unique_id }}</p>
+
+{% if user.role == 'admin' %}
+    <p>You are an admin with full access to the system.</p>
+{% elif user.role == 'organizer' %}
+    <p>You are an organizer. Manage events and users.</p>
+{% else %}
+    <p>You are a participant. Enjoy the events!</p>
+{% endif %}
+
+{% comment %} <a href="{% url 'logout' %}">Logout</a> {% endcomment %}
+{% endblock %}

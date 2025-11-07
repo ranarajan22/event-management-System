@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Registrations for {{ event.name }}</h2>
+
+<ul>
+    <li><strong>Organiser:</strong> {{ event.organiser }}</li>
+    <li><strong>Date & Time:</strong> {{ event.event_datetime }}</li>
+    <li><strong>Category:</strong> {{ event.category }}</li>
+</ul>
+
+<h3>Registered Users</h3>
+
+{% if registrations %}
+<table border="1" cellspacing="0" cellpadding="10">
+    <thead>
+        <tr>
+            <th>UID</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Date of Birth</th>
+            <th>Phone Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for registration in registrations %}
+        <tr>
+            <td>{{ registration.user.unique_id }}</td> <!-- UID from the Custom User Model -->
+            <td>{{ registration.full_name }}</td>
+            <td>{{ registration.email }}</td>
+            <td>{{ registration.date_of_birth }}</td>
+            <td>{{ registration.phone_number }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No users have registered for this event yet.</p>
+{% endif %}
+
+<a href="{% url 'event_list' %}">Back to Events</a>
+{% endblock %}

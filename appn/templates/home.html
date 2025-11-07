@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="text-align: center; margin-top: 50px;">
+    <h1>Welcome to the Event Management System</h1>
+    <p>Organize, manage, and participate in events with ease!</p>
+
+    <div style="margin-top: 30px;">
+        <a href="{% url 'event_list' %}" 
+           style="display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">
+            View Events
+        </a>
+        <a href="{% url 'event_create' %}" 
+           style="display: inline-block; padding: 10px 20px; background-color: #2196F3; color: white; text-decoration: none; border-radius: 5px; margin-left: 10px;">
+            Create Event
+        </a>
+    </div>
+</div>
+{% endblock %}

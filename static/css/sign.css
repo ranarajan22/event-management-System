@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    margin-top: 5px;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh; /* Ensure body takes full height */
+    background: linear-gradient(-45deg, #ff7e67, #ffcc8c, #78e1e3, #6ab8ff);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100%; /* Full height of the viewport */
+}
+
+.form-container {
+    margin: 20px; /* Add equal margins around the form */
+    width: 500px; /* Fixed width of the container */
+}
+
+.form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px; /* Increased padding for better spacing */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form input {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%; /* Full width of the form */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px; /* Increased font size for better readability */
+}
+
+.form button {
+    margin-top: 15px; /* Added margin for spacing */
+    padding: 10px;
+    background-color: #4CAF50; /* Default button color for sign up */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%; /* Full width of the form */
+}
+
+.form button:hover {
+    opacity: 0.8;
+}
+
+.signup-btn {
+    background-color: #007BFF; /* Different color for sign-up button */
+}
+
+.signup-btn:hover {
+    opacity: 0.8;
+}
+
+.login-prompt {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.login-prompt a {
+    color: #4CAF50; /* Link color */
+    text-decoration: none;
+}
+
+/* Additional styling for responsive design */
+@media (max-width: 400px) {
+    .form-container {
+        width: 90%; /* Allow more width on smaller screens */
+    }
+}
